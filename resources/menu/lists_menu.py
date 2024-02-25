@@ -7,8 +7,10 @@ class ListMenu:
         self.__empty_message = '⚠️ The list is empty, please create a list first\n\n'
 
     def create_linked_list(self):
+        os.system('clear')
         self.__list_module = ClientList() 
         self.__list_module.create_double_linked_list()
+        os.system('clear')
         print('✅ The list has been created successfully\n\n')
         return
     
@@ -17,6 +19,7 @@ class ListMenu:
             os.system('clear')
             print(self.__empty_message)
             return None
+        os.system('clear')
         self.__list_module.print_all_double_linked_list()
     
     def print_women_age_average(self):
@@ -24,6 +27,7 @@ class ListMenu:
             os.system('clear')
             print(self.__empty_message)
             return None
+        os.system('clear')
         self.__list_module.print_women_age_average()
     
     def print_men_age_average(self):
@@ -31,6 +35,7 @@ class ListMenu:
             os.system('clear')
             print(self.__empty_message)
             return None            
+        os.system('clear')
         self.__list_module.print_men_age_average()
     
     def event_manager(self, option_selected: int):
