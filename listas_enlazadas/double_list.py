@@ -65,13 +65,30 @@ class DoubleList:
             current_node = current_node.ld
         print(list);
 
-    #   Imprimir el promedio de edades
-    def print_age_average(self):
+    #   Imprimir el promedio de edades [Hombres]
+    def print_age_average_men(self):
         current_node = self.__start
         list = []
-        while current_node is not None:
-            list.append(current_node.age)
-            current_node = current_node.ld
-        average_resource = GetAverage(list)
+        if(current_node.sex & current_node.sex == 1):    
+            while current_node is not None:
+                list.append(current_node.age)                
+                current_node = current_node.ld
+            average_resource = GetAverage()
+            avg = average_resource.return_average(list)
+            return print('The men age average is: ', avg)
+        return print('⚠️ There are not men in the list')
+    
+    #   Imprimir el promedio de edades [Mujeres]
+    def print_age_average_women(self):
+        current_node = self.__start
+        list = []
+        if(current_node.sex & current_node.sex == 2):    
+            while current_node is not None:
+                list.append(current_node.age)                
+                current_node = current_node.ld
+            average_resource = GetAverage()
+            avg = average_resource.return_average(list)
+            return print('The women age average is: ', avg)
+        return print('⚠️ There are not men in the list')
 
 
