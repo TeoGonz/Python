@@ -22,7 +22,8 @@ class MainMenu:
         os.system('clear')
         options_main.get(option_main, exit)() 
     
-    def lists_menu(self): 
+    def lists_menu(self):
+        print('\n\n') 
         print('Menú de listas dobles enlazadas')
         print('________________________________\n')
         print('¿Que desea hacer?\n')

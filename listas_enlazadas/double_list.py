@@ -88,7 +88,6 @@ class DoubleList:
         list = []
         
         while current_node is not None:
-            print(current_node.sex)
             if(current_node.sex == 2):    
                 list.append(current_node.age)                
             current_node = current_node.ld
