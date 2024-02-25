@@ -69,26 +69,35 @@ class DoubleList:
     def print_age_average_men(self):
         current_node = self.__start
         list = []
-        if(current_node.sex & current_node.sex == 1):    
-            while current_node is not None:
+
+        while current_node is not None:
+            if(current_node.sex == 1):    
                 list.append(current_node.age)                
-                current_node = current_node.ld
-            average_resource = GetAverage()
-            avg = average_resource.return_average(list)
-            return print('The men age average is: ', avg)
-        return print('⚠️ There are not men in the list')
+            current_node = current_node.ld
+        
+        if(len(list) == 0):
+            return print('⚠️ There are not men in the list')
+            
+        average_resource = GetAverage()
+        avg = average_resource.return_average(list)
+        return print('The men age average is: ', avg)
     
     #   Imprimir el promedio de edades [Mujeres]
     def print_age_average_women(self):
         current_node = self.__start
         list = []
-        if(current_node.sex & current_node.sex == 2):    
-            while current_node is not None:
+        
+        while current_node is not None:
+            print(current_node.sex)
+            if(current_node.sex == 2):    
                 list.append(current_node.age)                
-                current_node = current_node.ld
-            average_resource = GetAverage()
-            avg = average_resource.return_average(list)
-            return print('The women age average is: ', avg)
-        return print('⚠️ There are not men in the list')
+            current_node = current_node.ld
+        
+        if(len(list) == 0):
+            return print('⚠️ There are not women in the list')
+        
+        average_resource = GetAverage()
+        avg = average_resource.return_average(list) 
+        return print('The women age average is: ', avg)
 
 
