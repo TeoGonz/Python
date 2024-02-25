@@ -1,3 +1,4 @@
+# coding=utf-8
 import os
 from resources.menu.lists_menu import ListMenu
 
