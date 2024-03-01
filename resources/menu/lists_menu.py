@@ -1,4 +1,4 @@
-import os
+from resources.os_resources import OsResources
 from listas_enlazadas.client_list import ClientList
 
 class ListMenu:
@@ -7,35 +7,35 @@ class ListMenu:
         self.__empty_message = '⚠️ The list is empty, please create a list first\n\n'
 
     def create_linked_list(self):
-        os.system('clear')
+        OsResources().clear_console()
         self.__list_module = ClientList() 
         self.__list_module.create_double_linked_list()
-        os.system('clear')
+        OsResources().clear_console()
         print('✅ The list has been created successfully\n\n')
         return
     
     def print_all_double_linked_list(self):
         if(self.__list_module is None):
-            os.system('clear')
+            OsResources().clear_console()
             print(self.__empty_message)
             return None
-        os.system('clear')
+        OsResources().clear_console()
         self.__list_module.print_all_double_linked_list()
     
     def print_women_age_average(self):
         if(self.__list_module is None):
-            os.system('clear')
+            OsResources().clear_console()
             print(self.__empty_message)
             return None
-        os.system('clear')
+        OsResources().clear_console()
         self.__list_module.print_women_age_average()
     
     def print_men_age_average(self):
         if(self.__list_module is None):
-            os.system('clear')
+            OsResources().clear_console()
             print(self.__empty_message)
             return None            
-        os.system('clear')
+        OsResources().clear_console()
         self.__list_module.print_men_age_average()
     
     def event_manager(self, option_selected: int):

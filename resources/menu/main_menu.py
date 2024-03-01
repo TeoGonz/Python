@@ -1,5 +1,5 @@
 # coding=utf-8
-import os
+from resources.os_resources import OsResources
 from resources.menu.lists_menu import ListMenu
 from resources.menu.recursion_menu import RecursionMenu
 
@@ -9,34 +9,34 @@ class MainMenu:
         self.__recursion_menu = RecursionMenu()
     
     def main_menu(self):
-        os.system('clear')
-        print('🐍🐍 Bienvenido al menú principal 🐍🐍')
+        OsResources().clear_console()
+        print('🐍🐍 Welcome to main menu 🐍🐍')
         print('________________________________________\n')
-        print('¿Que desea revisar?')
+        print('What do you want to do?')
         option_main = int(input(
-                'Menú de listas dobles enlazadas:    Presione [1]\n'
-                'Menú de recursividad:               Presione [2]\n'
-                'Para salir de la aplicación:        Presione [3]\n'
+                'Linked double list menu:   Presione [1]\n'
+                'Recursion menu:            Presione [2]\n'
+                'Exit the app:              Presione [3]\n'
             ))
         options_main = {
             1: self.lists_menu,
             2: self.recursion_menu,
             3: exit
         }
-        os.system('clear')
+        OsResources().clear_console()
         options_main.get(option_main, exit)() 
     
     def lists_menu(self):
         print('\n\n') 
-        print('Menú de listas dobles enlazadas')
+        print('Linked double list menu')
         print('________________________________\n')
-        print('¿Que desea hacer?\n')
+        print('What do you want to do?\n')
         option_selected = int(input(
                 'Create a double linked list:   press [1]\n'
                 'Print all elements in list:    press [2]\n'
                 'Print women age average:       press [3]\n'
                 'Print men age average:         press [4]\n'
-                'Exit the app:                  Press [5]\n'
+                'Return to main menu:           Press [5]\n'
             ))
         print('\n\n')
 
@@ -50,18 +50,20 @@ class MainMenu:
     
     def recursion_menu(self):
         print('\n\n') 
-        print('Menú de recursividad')
+        print('Recursion menu')
         print('______________________\n')
-        print('¿Que desea hacer?\n')
+        print('What do you want to do?\n')
         option_selected = int(input(
-                'Create a list:   press [1]\n'
-                'Print list:      press [2]\n'
-                'Print total sum: press [3]\n'
-                'Exit the app:    Press [4]\n'
+                'Create a list:         press [1]\n'
+                'Print list:            press [2]\n'
+                'Print total sum:       press [3]\n'
+                'Print asc list:        press [4]\n'
+                'Print dsc list:        press [5]\n'
+                'Return to main menu:   Press [6]\n'
             ))
         print('\n\n')
 
-        if(option_selected == 4):
+        if(option_selected == 6):
             return self.main_menu()
 
         event = self.__recursion_menu.event_manager(option_selected)

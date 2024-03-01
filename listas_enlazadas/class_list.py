@@ -66,7 +66,7 @@ class LinkedList:
 
 
 s = LinkedList()
-limitList = input('Inserte un número entero para el límite de la lista: ')
+limitList = input('Insert integer for the limit of list: ')
 if limitList: 
     s.insertByClient(int(limitList))
     s.printList()
