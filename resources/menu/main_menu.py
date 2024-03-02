@@ -55,15 +55,17 @@ class MainMenu:
         print('What do you want to do?\n')
         option_selected = int(input(
                 'Create a list:         press [1]\n'
-                'Print list:            press [2]\n'
-                'Print total sum:       press [3]\n'
-                'Print asc list:        press [4]\n'
-                'Print dsc list:        press [5]\n'
-                'Return to main menu:   Press [6]\n'
+                'Create array list      press [2]\n'
+                'Print list:            press [3]\n'
+                'Print array:           press [4]\n'
+                'Print total sum:       press [5]\n'
+                'Print asc list:        press [6]\n'
+                'Print dsc list:        press [7]\n'
+                'Return to main menu:   Press [8]\n'
             ))
         print('\n\n')
 
-        if(option_selected == 6):
+        if(option_selected == 8):
             return self.main_menu()
 
         event = self.__recursion_menu.event_manager(option_selected)

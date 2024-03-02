@@ -9,8 +9,14 @@ class LinkedList:
     def __init__(self) -> None:
         self.__first = None
         self.__len = 0
+
+    def insertByClient(self, data):
+        if self.__first is None:
+            self.insertIntoEmptyList(int(data))
+        else:
+            self.insertAtEnd(int(data))   
     
-    def insertByClient(self, limit: int):
+    def insertRandomByLimit(self, limit: int):
         for i in range(limit):            
             random_number = random.randint(1, 10)
             if self.__first is None:
