@@ -2,11 +2,13 @@
 from resources.os_resources import OsResources
 from resources.menu.lists_menu import ListMenu
 from resources.menu.recursion_menu import RecursionMenu
+from recursividad.array.array_menu import ArrayMenu
 
 class MainMenu:
     def __init__(self):
         self.__lists_menu = ListMenu()
         self.__recursion_menu = RecursionMenu()
+        self.__array_menu = ArrayMenu()
     
     def main_menu(self):
         OsResources().clear_console()
@@ -16,12 +18,14 @@ class MainMenu:
         option_main = int(input(
                 'Linked double list menu:   Presione [1]\n'
                 'Recursion menu:            Presione [2]\n'
-                'Exit the app:              Presione [3]\n'
+                'Array menu:                Presione [3]\n'
+                'Exit the app:              Presione [4]\n'
             ))
         options_main = {
             1: self.lists_menu,
             2: self.recursion_menu,
-            3: exit
+            3: self.array_menu,
+            4: exit
         }
         OsResources().clear_console()
         options_main.get(option_main, exit)() 
@@ -47,6 +51,27 @@ class MainMenu:
         
         if(event is None):
             return self.lists_menu()
+
+    def array_menu(self):
+        print('\n\n') 
+        print('Array menu')
+        print('______________________\n')
+        print('What do you want to do?\n')
+        option_selected = int(input(
+                'Create an array:         press [1]\n'
+                'Print array:             press [2]\n'
+                'Print total sum:         press [3]\n'
+                'Return to main menu:     Press [4]\n'
+            ))
+        print('\n\n')
+
+        if(option_selected == 4):
+            return self.main_menu()
+
+        event = self.__array_menu.event_manager(option_selected)
+        
+        if(event is None):
+            return self.array_menu()
     
     def recursion_menu(self):
         print('\n\n') 
@@ -54,14 +79,14 @@ class MainMenu:
         print('______________________\n')
         print('What do you want to do?\n')
         option_selected = int(input(
-                'Create a list:         press [1]\n'
-                'Create array list      press [2]\n'
-                'Print list:            press [3]\n'
-                'Print array:           press [4]\n'
-                'Print total sum:       press [5]\n'
-                'Print asc list:        press [6]\n'
-                'Print dsc list:        press [7]\n'
-                'Return to main menu:   Press [8]\n'
+                'Create a list:             press [1]\n'
+                'Print list:                press [2]\n'
+                'Print total sum:           press [3]\n'
+                'Print recursive list:      press [4]\n'
+                'Print recursive left:      press [5]\n'
+                'Print asc list:            press [6]\n'
+                'Print dsc list:            press [7]\n'
+                'Return to main menu:       Press [8]\n'
             ))
         print('\n\n')
 

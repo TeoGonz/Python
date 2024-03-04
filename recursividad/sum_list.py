@@ -22,7 +22,7 @@ class LinkedList:
             if self.__first is None:
                 self.insertIntoEmptyList(random_number)
             else:
-                self.insertAtEnd(random_number)   
+                self.insertAtEnd(random_number)
 
     def copyList(self):
         copy_list = LinkedList()  # Creamos una nueva lista enlazada para la copia
@@ -123,11 +123,16 @@ class LinkedList:
             return right
 
     # Luego, la función imprimir simplemente imprime los elementos de la lista enlazada después de que se hayan ordenado.
-    def recursion_printList(self, nodo):
-        if nodo is None:
+    def recursion_printList(self, node):
+        if node is None:
             return
-        print(nodo.data)
-        self.recursion_printList(nodo.next)
+        print(node.data)
+        self.recursion_printList(node.next)
+    
+    def recursion_printList_left(self, node):
+        if node:
+            self.recursion_printList_left(node.next)
+            print(node.data)
     
     def printList(self):
         current = self.__first

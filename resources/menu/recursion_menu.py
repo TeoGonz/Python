@@ -1,14 +1,10 @@
 
 from resources.os_resources import OsResources
 from recursividad.sum_list import LinkedList
-from recursividad.sum_array import SumArray
 
 class RecursionMenu:
     def __init__(self):
-        self.__array_list = []
-        self.__array_iterator = 0
         self.__list_module = None
-        self.__sum_array_module = None
         self.__empty_message = '⚠️ The list is empty, please create a list first\n\n'
     
     def create_list(self):
@@ -22,17 +18,6 @@ class RecursionMenu:
         
         return
     
-    def create_array(self):
-        OsResources().clear_console()
-        self.__sum_array_module = SumArray()
-        limitArray = input('Insert integer number for the limit of the array: ')
-        for i in range(int(limitArray)):
-            vector_number = input('Insert integer number: ')
-            self.__array_list = self.__sum_array_module.push(self.__array_list, int(vector_number))
-        OsResources().clear_console()
-        print('✅ The array has been created successfully\n\n')
-        return
-    
     def print_list(self):
         if(self.__list_module is None):
             OsResources().clear_console()
@@ -40,18 +25,6 @@ class RecursionMenu:
             return None
         OsResources().clear_console()
         self.__list_module.printList()
-
-    def print_array(self):
-        if(len(self.__array_list) == 0):
-            OsResources().clear_console()
-            print('⚠️ The array is empty, please create an array first\n\n')
-            return None
-        OsResources().clear_console()
-        print('ARRAY LIST : ', self.__array_list)
-        self.print_total_sum_arr()
-    
-    def print_total_sum_arr(self):
-        print('RECURSION ADDITION SUM ARRAY : ', self.__sum_array_module.sum_array(self.__array_list, self.__array_iterator))
 
     def print_total_sum(self):
         if(self.__list_module is None):
@@ -68,11 +41,21 @@ class RecursionMenu:
             return None
         OsResources().clear_console()
         linkedList = self.__list_module.copyList()
-        preparedList = linkedList.merge_sort(linkedList._LinkedList__first, mode)
-        # linkedList = self.__list_module._LinkedList__copy
-        # linkedList = self.__list_module.merge_sort(linkedList, mode)
-        linkedList.recursion_printList(preparedList)
+        
+        if(mode == 'recursive_right'):
+            return linkedList.recursion_printList(linkedList._LinkedList__first)
+        elif(mode == 'recursive_left'):
+            return linkedList.recursion_printList_left(linkedList._LinkedList__first)
+        elif(mode == 'asc' or mode == 'dsc'):
+            preparedList = linkedList.merge_sort(linkedList._LinkedList__first, mode)
+            linkedList.recursion_printList(preparedList)
 
+    def show_recursive_list_left(self):
+        self.recursion_printList('recursive_left')
+    
+    def show_recursive_list(self):
+        self.recursion_printList('recursive_right')
+    
     def asc_printList(self):
         self.recursion_printList('asc')
     
@@ -83,17 +66,16 @@ class RecursionMenu:
         limit = input('Insert integer for the limit of list: ')
         for i in range(int(limit)):
             vector_number = input('Insert integer number: ')
-            #
             self.__list_module.insertByClient(vector_number)
     
     def event_manager(self, option_selected: int):
         print('option_selected', option_selected)
         options_lists = {
             1: self.create_list,
-            2: self.create_array,
-            3: self.print_list,
-            4: self.print_array,
-            5: self.print_total_sum,
+            2: self.print_list,
+            3: self.print_total_sum,
+            4: self.show_recursive_list,
+            5: self.show_recursive_list_left,
             6: self.asc_printList,
             7: self.dsc_printList
         }        
