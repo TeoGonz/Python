@@ -13,7 +13,7 @@ class Arbol:
             if(nodo.li == None):
                 nodo.li = Nodo(d)
             else:
-                self.agregar(nodo.izq, d)
+                self.agregar(nodo.li, d)
         else: 
             if (nodo.ld == None):
                 nodo.ld = Nodo(d)
