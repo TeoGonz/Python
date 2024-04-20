@@ -65,9 +65,9 @@ class Arbol:
                 return nodo
             else:
                 if(d<nodo.dato):
-                    return self.buscar(nodo.li)
+                    return self.buscar(nodo.li, d)
                 else:
-                    return self.buscar(nodo.ld)
+                    return self.buscar(nodo.ld, d)
 
     def buscando(self, d):
         return self.buscar(self.raiz, d)
@@ -106,11 +106,11 @@ while True:
         ar.postordeno(ar.raiz)
     elif(opc==4):
         d = int(input('Ingrese el dato a buscar: '))
-        p = ar.buscando(ar.raiz, d)
+        p = ar.buscando(d)
         if(p is None):
-            print('El dato no existe')
+            print('[El dato no existe]')
         else:
-            print('El dato existe')
+            print('[El dato existe]')
     elif(opc==5):
         break
 
