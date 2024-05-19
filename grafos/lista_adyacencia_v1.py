@@ -58,7 +58,7 @@ class Grafo:
         for i, lista in enumerate(self.lista_adyacencia):
             actual = lista.cabeza
             while actual:
-                matriz[actual.valor][i] = 1
+                matriz[actual.valor - 1][i] = 1
                 actual = actual.siguiente
 
         # Retorna la matriz de adyacencia
@@ -85,9 +85,13 @@ g.agregar_arista(3, 1)
 g.agregar_arista(3, 2)
 g.agregar_arista(3, 3)
 
+print("GRAFO NO DIRIGIDO")
 # Imprimimos la lista de adyacencia
 print("Lista de adyacencia:")
 g.imprimir_lista_adyacencia()
+
+print("\n")
+print("MATRIZ:")
 
 # Obtenemos la matriz de adyacencia
 matriz_adyacencia = g.obtener_matriz_adyacencia()

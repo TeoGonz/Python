@@ -62,5 +62,6 @@ g.agregar_arista(1, 2)  # Conexión unidireccional de nodo 1 a nodo 2
 
 g.agregar_arista(2, 0)  # Conexión unidireccional de nodo 2 a nodo 0
 
+print("GRAFO DIRIGIDO")
 # Imprimimos la matriz de adyacencia
 g.imprimir_matriz_adyacencia()

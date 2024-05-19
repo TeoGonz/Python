@@ -50,6 +50,20 @@ class Grafo:
             print(f"Nodo {i}: ", end="")
             lista.imprimir()  # Imprime la lista de adyacencia para cada nodo
 
+    def obtener_matriz_adyacencia(self):
+        # Inicializa una matriz de adyacencia llena de ceros
+        matriz = [[0] * self.num_nodos for _ in range(self.num_nodos)]
+
+        # Llena la matriz de adyacencia con los valores de la lista de adyacencia
+        for i, lista in enumerate(self.lista_adyacencia):
+            actual = lista.cabeza
+            while actual:
+                matriz[actual.valor - 1][i] = 1
+                actual = actual.siguiente
+
+        # Retorna la matriz de adyacencia
+        return matriz 
+
 
 # Ejemplo de uso para el grafo deseado
 g = Grafo(7)  # Creamos un grafo con 7 nodos
@@ -74,6 +88,17 @@ g.agregar_arista(5, 3)
 
 g.agregar_arista(6, 4)
 
+print("GRAFO NO DIRIGIDO")
 # Imprimimos la lista de adyacencia
 print("Lista de adyacencia:")
 g.imprimir_lista_adyacencia()
+
+print("\n")
+print("MATRIZ:")
+
+# Obtenemos la matriz de adyacencia
+matriz_adyacencia = g.obtener_matriz_adyacencia()
+
+# Imprimimos la matriz de adyacencia
+for fila in matriz_adyacencia:
+    print(fila)
